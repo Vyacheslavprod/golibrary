@@ -1,0 +1,11 @@
+go mod init example.com/hello - инициализация модуля
+
+go mod edit -replace example.com/greetings=../greetings - добавление зависимости
+
+go mod tidy - обновление модуля
+
+go run . - запуск main.go
+
+cd .. - назад на один уровень
+
+cd / - назад в корень

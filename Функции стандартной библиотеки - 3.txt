@@ -1,0 +1,121 @@
+В Go есть стандартная библиотека strconv для конвертации чисел в строки и наоборот.
+
+Пример использования:
+
+//преобразует строку в float64
+grade, err := strconv.ParseFloat(input, 64) 
+
+//преобразует строку в число int
+num, err := strconv.Atoi(s)
+
+//s := strconv.Itoa(-42) // "-42"
+
+Код:
+
+import "strconv"
+
+func IntToString(num int) string {
+  return strconv.Itoa(num)
+}
+
+
+
+Функция math.Max(), определяющая наибольшее число, принимает аргументы в виде float64
+Функция math.Min(), наименьшее
+
+Код:
+
+func MinInt(x, y int) int {
+	return int(math.Min(float64(x), float64(y)))
+}
+
+
+Функция пакета "math/rand" - rand.Intn(10) - Рандомное число
+
+
+Для работы со строками часто используется стандартная библиотека strings
+
+// обрезает символы, переданные вторым аргументом, с обеих сторон строки
+strings.Trim(s, cutset string) string
+strings.Trim(" hello ", " ") // "hello"
+
+//удаляет все символы-пропуски в начале и конце строки: новая строка, табуляция и пробелы
+strings.Trimspace(s)
+
+// преобразует все буквы в строке в нижний регистр
+strings.ToLower(s string) string
+strings.ToLower("пРиВеТ") // "привет"
+
+// озаглавливает первую букву в каждом слове в строке
+strings.Title(s string) string
+strings.Title("привет, джон") // "Привет, Джон"
+
+//
+strings.HasPrefix(name, "Mr.") - функция проверяет, что строка name начинается с подстроки "Mr."
+
+//
+Наличие пробелов можно проверить с помощью функции strings.Contains(firstName, " ")
+
+Код:
+
+func Greetings(name string) string {
+	name = strings.Trim(name, " ")
+	name = strings.ToLower(name)
+	name = strings.Title(name)
+	return fmt.Sprintf("Привет, %v!", name)
+}
+
+//Ищет подстроку в строке и заменяет каждое вхождение в другой строке
+	broken := "G# r#cks!"
+	replacer := strings.NewReplacer("#", "o")
+	fixed := replacer.Replace(broken)
+	fmt.Println(fixed)
+
+//Для замены символов в строке существует функция ReplaceAll(s, old, new string) string из пакета strings:
+
+strings.ReplaceAll("hello world!", "world!", "buddy!") // hello buddy!
+strings.ReplaceAll("one two three", " ", "_") // one_two_three
+
+Код:
+
+func ModifySpaces(s, mode string) string {
+	
+	var replacement string
+
+	switch mode {
+	case "dash":
+		replacement = "-"
+	case "underscore":
+		replacement = "_"
+	default:
+		replacement = "*"
+	}
+
+	return strings.ReplaceAll(s, " ", replacement)
+}
+
+
+//Стандартный пакет sort предоставляет функции для сортировки:
+"Под капотом" в функции sort.Slice используется быстрая сортировка. 
+В пакете также присутствует сортировка вставками sort.SliceStable:
+
+Быстрая сортировка - 
+nums := []int{2,1,6,5,3,4}
+
+sort.Slice(nums, func(i, j int) bool {
+    return nums[i] < nums[j]
+})
+
+fmt.Println(nums) // [1 2 3 4 5 6]
+
+
+Сортировка вставками - 
+nums := []int{2,1,6,5,3,4}
+
+sort.SliceStable(nums, func(i, j int) bool {
+    return nums[i] < nums[j]
+})
+
+fmt.Println(nums) // [1 2 3 4 5 6]
+
+
