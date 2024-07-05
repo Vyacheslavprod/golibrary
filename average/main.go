@@ -1,11 +1,19 @@
-// average вычисляет среднее значение
+// average вычисляет среднее значение, считывая строки из файла и преобразуя их в float
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+
+	"github.com/vyacheslavprod/golibrary/datafile"
+)
 
 func main() {
-	numbers := [3]float64{71.8, 56.2, 89.5}
-	var sum float64
+	numbers, err := datafile.GetFloats("data.txt") //Разбирает содержащиеся в нем числа и сохраняет массив
+	if err != nil {
+		log.Fatal(err)
+	}
+	var sum float64 = 0
 	for _, number := range numbers {
 		sum += number
 	}
