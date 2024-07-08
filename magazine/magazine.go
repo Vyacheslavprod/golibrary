@@ -10,7 +10,7 @@ type Subscriber struct {
 type Employee struct {
 	Name string
 	Salary float64
-	HomeAddress Address
+	Address
 }
 
 type Address struct {
