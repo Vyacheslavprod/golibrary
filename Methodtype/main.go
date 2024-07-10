@@ -5,8 +5,6 @@ import "fmt"
 
 type Mytype string
 
-
-
 func (m Mytype) sayHi() {
 	fmt.Println("Hi")
 }
