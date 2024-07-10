@@ -94,6 +94,18 @@ func ModifySpaces(s, mode string) string {
 	return strings.ReplaceAll(s, " ", replacement)
 }
 
+//Подсчет количества рун в строке
+ import "unicode/utf8"
+
+//Set метод
+func (e *Event) SetTitle(title string) error {
+	if utf8.RuneCountInString(title) > 30 {
+		return errors.New("invalid title")
+	}
+	e.title = title
+	return nil
+}
+
 
 //Стандартный пакет sort предоставляет функции для сортировки:
 "Под капотом" в функции sort.Slice используется быстрая сортировка. 
