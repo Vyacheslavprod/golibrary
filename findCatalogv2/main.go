@@ -6,6 +6,17 @@ import (
 	"path/filepath"
 )
 
+func reportPanic() {
+	p := recover()
+	if p == nil {
+		return
+	}
+	err, ok := p.(error)
+	if ok {
+		fmt.Println(err)
+	}
+}
+
 //Рекурсивная функция, которая получает путь для обработки
 func scanDirectory(path string) error {
 	fmt.Println(path) //Выводит текущий каталог
@@ -26,5 +37,6 @@ func scanDirectory(path string) error {
 }
 
 func main() {
+	defer reportPanic()
 	scanDirectory("my_directory") 
 }
