@@ -7,6 +7,8 @@ func calmDown() {
 	err, ok := p.(error)
 	if ok {
 		fmt.Println(err.Error())
+	} else {
+		panic(p) //Непредвиденная паника
 	}
 }
 

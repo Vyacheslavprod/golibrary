@@ -14,6 +14,8 @@ func reportPanic() {
 	err, ok := p.(error)
 	if ok {
 		fmt.Println(err)
+	} else {
+		panic(p) //Непредвиденная паника
 	}
 }
 
