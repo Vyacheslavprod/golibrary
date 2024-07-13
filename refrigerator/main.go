@@ -30,12 +30,12 @@ func (r Refrigerator) Close()  {
 //Метод FindFood вызывает Open для открытия двери, вызывает функцию find
 func (r Refrigerator) FindFood(food string) error {
 	r.Open()
+	defer r.Close()
 	if find(food, r) {
 		fmt.Println("Found", food)
 	} else {
 		return fmt.Errorf("%s not found", food)
 	}
-	defer r.Close()
 	return nil
 }
 
