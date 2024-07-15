@@ -17,9 +17,22 @@ func b() {
 	}
 }
 
+func greeting(myChan chan string)  {
+	myChan <- "hi"
+}
+
 func main() {
 	go a()
 	go b()
-	time.Sleep(time.Second)
+
+	myChan := make(chan string)
+	go greeting(myChan)
+	//fmt.Println(<-myChan)
+	receivedValue := <- myChan
+	fmt.Println(receivedValue)
+
+	time.Sleep(2 * time.Second)
 	fmt.Println("end main()")
+
+
 }
