@@ -1,0 +1,5 @@
+Флаги к go test: 
+-v(Расширенный вывод теста)
+-v -run(Two) - функции с Two
+-v -run(Elements) - функции с Elements
+-run(Name) - без -v
