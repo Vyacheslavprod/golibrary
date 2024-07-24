@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Clients</title>
+    </head>
+    <body>
+        <table>
+            <thead><th>Id</th><th>Document</th><th>Language</th><th>Status</th></thead>
+            {{range . }}
+            <tr>
+                <td>{{.Id}}</td>
+                <td>{{.Document}}</td>
+                <td>{{.Language}}</td>
+                <td>{{.Status}}</td>
+            </tr>
+            {{end}}
+        </table>
+    </body>
+</html>
