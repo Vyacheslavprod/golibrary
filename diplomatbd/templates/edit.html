@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Edt Document</title>
+    </head>
+    <body>
+        <h3>Редактирование</h3>
+        <form method="POST">
+            <input type="hidden" name="id" value="{{.Id}}" />
+            <label>Документ</label><br>
+            <input type="text" name="document" value="{{.Document}}" /><br><br>
+            <label>Язык</label><br>
+            <input type="text" name="language" value="{{.Language}}" /><br><br>
+            <label>Статус</label><br>
+            <input type="text" name="status" value="{{.Status}}" /><br><br>
+            <input type="submit" value="Изменить" />
+        </form>
+    </body>
+</html>

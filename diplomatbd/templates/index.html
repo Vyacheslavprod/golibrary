@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Documents</title>
+    </head>
+    <body>
+        <h2>Список документов</h2>
+        <p><a href="/create">Добавить</a></p>
+        <table>
+            <thead><th>Id</th><th>Документ</th><th>Язык</th><th>Статус</th><th></th></thead>
+            {{range . }}
+            <tr>
+                <td>{{.Id}}</td>
+                <td>{{.Document}}</td>
+                <td>{{.Language}}</td>
+                <td>{{.Status}}</td>
+                <td><a href="/edit/{{.Id}}">Изменить</a>
+                </td>
+            </tr>
+            {{end}}
+        </table>
+    </body>
+</html>
