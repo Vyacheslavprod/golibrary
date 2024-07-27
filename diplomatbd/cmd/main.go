@@ -92,7 +92,7 @@ func EditHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	var err error
-	db, err = sql.Open("mysql", "root:IDIlfoVeTNGt9T8sifMJ0tGFYQyW+kC4n3ZwEaHwUvSR@/documentsdb")
+	db, err = sql.Open("mysql", pass)
 	check(err)
 	err = db.Ping()
 	check(err)
